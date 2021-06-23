@@ -1,104 +1,120 @@
-<html lang= "en" xmlns="http://www.w3.org/1999/xhtml" >
-    <head>
-        <meta charset="utf-8">
-        <link rel="preconnect" href="http://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap" rel="stylesheet">
-        <title> Controle Finaceiro </title>
-        <link href="main.css" rel="stylesheet" >
-        </head>
-    <body>
-        <header>
-            <img id="logo" src="logo.png">
-            <h1>Controle Financeiro</h1>
-            <!-- Botão Menu-->
-            <nav class="menu-dropdown"></nav>
-            <div class="menu-icon">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <ul>
-                <li>
-                    <a class="menu-link" href="#">X</a>
-                </li>
-                <li>
-                    <a class="menu-link" href="#"> Limpar dados </a>
-                </li>
-                <li>
-                    <a class="menu-link" href="#"> Cadastro de transações </a>
-                </li>
-                <li>
-                    <a class="menu-link" href="#"> Salvar no servidor </a>
-                </li>
-            </ul>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+  <!--Menu-->
+    <header class="header-bg">
+      <div class="header">
+        <div class="header-logo">
+          <img src="src/logo.svg" alt="Logo" />
+          <p>Controle financeiro</p>
+        </div>
+				<div class="header-logo-mobile">
+					<img src="src/logo.svg" alt="Logo" />
+				</div>
+				<div class="header-text-mobile">
+					<p>Controle financeiro</p>
+				</div>
+
+        <nav class="header-menu">
+          <button class="btn-menu">
+            <span id="hamburger"></span>
+          </button>
+          <ul>
+            <li><a href="#">Cadastro de transações</a></li>
+            <li><a href="#">Salvar no servidor</a></li>
+            <li><a href="#">Limpar dados</a></li>
+          </ul>
         </nav>
-        <!-- Botão Menu -->
+      </div>
+    </header>
 
+    <!--Sessão de controle-->
+    <section class="control-main">
+
+      <!--Formulario dentro da Sessão controle-->
+      <div class="form-block">
+        <h1>Nova transação</h1>
+        <form action="">
+          <div class="flex-1">
+            <label for="transaction-type">Tipo de transação</label><br />
+            <select id="transaction-type">
+              <option value="">Compra</option>
+            </select>
+          </div>
+          <div class="flex-2">
+            <label for="merchandise-name">Nome da mercadoria</label><br />
+            <input type="text" id="merchandise-name" placeholder="input" />
+          </div>
+          <div class="flex-1">
+            <label for="value-merchandise">Valor</label><br />
+            <input type="text" id="merchandise-name" placeholder="R$ 0,00" />
+          </div>
+        </form>
+				<input type="button" value="Adicionar transação" />
+      </div>
+
+      <!--Extrato dentro da sessão controle-->
+      <aside class="extract-main">
+        <h1>Extrato das transações</h1>
+        <header class="extract-label">
+          <h2>Mercadoria</h2>
+          <h2>Valor</h2>
         </header>
-        <section class="contanier">
-            <div class="box-input">
-                <h3 class="nova-transacao"> Nova Transação </h3>
-                <form method="POST">
-                    <div>
-                        <label for="transacao"> Tipo de Transação</label>
-                        <br>
-                    <select id="transacao" name="transacao">
-                        <option value="compra"> Compra </option>
-                        <option value="venda"> Venda </option>
-                    </select>
-                    </div>
-                    <div>
-                        <label for="mercadoria"> Nome da Mercadoria</label>
-                        <br>
-                        <input id="mercadoria" type="text" name="first-teste-field" placeholder="Input">
-                    </div>
-                    <div>
-                        <label for="valor"> Valor </label>
-                        <br>
-                        <input id="valor" type="text" placeholder="R$ 0,00">
-                    </div>
-                    <div>
-                        <button class="submit" type="submit"> Adicionar Transação </button>
-                    </div>
-                    </form>
-                    </div>
-                    <div class="extratos">
-                        <h3> Extratos de transações </h3>
-                        <br>
-                        <table>
-                            <tbody>
-                                <tr class="tr-border">
-                                    <th></th>
-                                    <th> Mercadoria </th>
-                                    <th class="tr-fim"> Valor </th>
-                                </tr>
-                                <tr class="tr border">
-                                    <td> + </td>
-                                    <td> Lorem ipsum dolor sit amet consectetur </td>
-                                    <td class="tr-right"> R$12.999,99 </td>
-                                </tr>
-                                <tr class="tr-border">
-                                    <td> - </td>
-                                    <td> Quis nostrud exercitation </td>
-                                    <td class="tr-right"> R$99,99 </td>
-                                </tr>
-                                <tr class="tr-border">
-                                    <td> + </td>
-                                    <td> Lorem ipsum </td>
-                                    <td class="tr-right"> R$9,99 </td>
-                                </tr>
-                                <tr>
-                                <td></td>
-                                <th class="tr-left"> Total </th>
-                                <th class="tr-right"> R$12.999,99 </th>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p class="lucro"> [LUCRO] </p>
-                    </section>
-                    <footer></footer>
-    </body>
+        <ul class="extract-list">
+          <li>
+            <div class="extract-desc">
+              <div class="merchandise-block">
+                <p class="extract-status">+</p>
+                <p>Lorem ipsum dolor sit amet consectetur</p>
+              </div>
+              <div class="value-block">
+                <p>R$ 12.999,99</p>
+              </div>
+            </div>
+          </li>
 
+          <li>
+            <div class="extract-desc">
+              <div class="merchandise-block">
+                <p class="extract-status">-</p>
+                <p>Lorem ipsum dolor sit amet consectetur</p>
+              </div>
+              <div class="value-block">
+                <p>R$ 99,99</p>
+              </div>
+            </div>
+          </li>
 
+          <li>
+            <div class="extract-desc">
+              <div class="merchandise-block">
+                <p class="extract-status">+</p>
+                <p>Lorem ipsum dolor sit amet consectetur</p>
+              </div>
+              <div class="value-block">
+                <p>R$ 9,99</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <footer class="extract-total">
+          <div class="merchandise-block">
+            <p>Total</p>
+          </div>
+          <div class="value-block">
+            <p>R$ 12.909,99</p>
+            <span>[LUCRO]</span>
+          </div>
+        </footer>
+      </aside>
+    </section>
+  </body>
 </html>

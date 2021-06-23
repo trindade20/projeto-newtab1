@@ -1,11 +1,414 @@
-        
-        body {
-           
-            font-family: Lato;
-            position: relative;
-            width: 411px;
-            height: 731px;
-            margin: auto;
-            background: #faf4f4
-             
-            }
+
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*reset para as tags*/
+* {
+	box-sizing: border-box;
+}
+
+body, h1, p, a, h2, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Lato", Arial, Helvetica, sans-serif; 
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+/* serve para os campos de texto e o botão ocupar 
+todo espaço da div */
+.form-block input, .form-block select {
+	width: 100%;
+}
+
+/* --------------------------- */
+
+/* display: none serve para ocultar
+por isso as tags da parte mobile estao
+ocutadas*/
+.header-logo-mobile {
+	display: none;
+}
+
+.header-text-mobile {
+	display: none;
+}
+
+.btn-menu {
+	display: none;
+}
+
+
+/* cabeçalho do site */
+
+/* erro: qual cor a barra tinha mesmo? */
+.header-bg {
+	background: ?;
+	color: #333333;
+	margin-bottom: 30px;
+}
+
+.header {
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 1rem 1.25rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-logo {
+	display: flex;
+	align-items: center;
+}
+
+.header-logo p {
+	font-family: Lato;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+	margin-left: 1rem;
+}
+
+.header-menu {
+	background: #FFFFFF;
+	padding: .8rem 0;
+}
+
+.header-menu ul{
+	display: flex;
+	align-items: center;
+}
+.header-menu a {
+	color: #333333;
+	font-family: Lato;
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 19px;
+	padding: .8rem 1.25rem;
+}
+
+.header-menu ul li:nth-child(2n)::before {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	width: 1px;
+	height: 20px;
+	background: #979797;
+}
+
+.header-menu ul li:nth-child(2n)::after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	width: 1px;
+	height: 20px;
+	background: #979797;
+}
+/* -------------------------------------- */
+
+/* formulario */
+
+/* como que faz aquela borda de 1px solid e na
+cor #979797 mesmo? */
+.form-block {
+	max-width: 400px;
+	border-radius: 4px;
+	border: ?;
+	padding: 0 0.9375rem;
+	margin-bottom: 24px;
+	flex-grow: 1;
+}
+
+.form-block form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-block h1 {
+	font-family: Lato;
+	font-size: 1.125rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 22px;
+	text-align: center;
+	margin: 1.25rem 0;
+}
+
+.form-block form label {
+	font-family: Lato;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5rem;
+	margin-bottom: 10px;
+}
+
+.form-block form input[type="text"], .form-block select {
+	background: #FFFFFF;
+	border: 1px solid #979797;
+	padding: 6px 10px;
+	border-radius: 4px;
+	margin-bottom: 23px;
+}
+
+.form-block input[type="button"] {
+	font-family: 'Inter', sans-serif;
+	font-size: .875rem;
+	line-height: 22px;
+	color: #FFFFFF;
+	background: #333333;
+	border-radius: 4px;
+	font-weight: 400;
+	padding: 4px 0;
+	margin-bottom: 20px;
+	cursor: pointer;
+	border: none;
+}
+/* ----------------------------------- */
+
+/* sessão que abriga o o formulario e o controle */
+
+/* por que esta em coluna ? tem alguma propiedade
+como uma direção em coluna na classe control-main?*/
+.control-main {
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 0 1.25rem;
+	display: flex;
+    flex-direction: column;
+	justify-content: space-between;
+}
+
+.extract-main {
+	max-width: 680px;
+	margin-top: 20px;
+	margin-left: 20px;
+	flex: 1 1 436px;
+}
+.extract-main h1 {
+	text-align: center;
+	font-family: Lato;
+	font-size: 1.125rem;
+	font-weight: 700;
+	margin-bottom: 20px;
+	line-height: 22px;
+}
+
+.extract-main .extract-label h2 {
+	font-family: Lato;
+	font-size: .875rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 22px;
+}
+
+.extract-label {
+	padding: 0 20px 0 38px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.extract-desc {
+	border-top: 1px solid #979797;
+	padding: 8px 20px;
+}
+
+.extract-list li:nth-last-child(1) .extract-desc {
+	border-bottom: 1px solid #979797;
+}
+
+.extract-list li .extract-desc {
+	max-width: 680px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.merchandise-block {
+	max-width: 230px;
+	display: flex;
+}
+
+.extract-status {
+	width: 10px;
+	margin-right: 10px;
+}
+
+.merchandise-block p {
+	font-family: Lato;
+	font-size: .875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 16px;
+}
+
+.value-block p {
+	font-family: Lato;
+	font-size: .875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 22px;
+}
+
+.extract-total {
+	padding: 12px 20px 0 38px;
+	margin-top: 2px;
+	border-top: 1px solid #979797;
+	display: flex;
+	justify-content: space-between;
+}
+
+.extract-total .value-block {
+	margin-top: 10px;
+}
+
+.extract-total .value-block p {
+	line-height: 4px;
+}
+
+.extract-total .value-block span {
+	font-family: Lato;
+	font-size: .625rem;
+	font-style: normal;
+	font-weight: 400;
+	letter-spacing: 0px;
+	margin-left: 44px;
+}
+
+.extract-total p {
+	font-family: Lato;
+	font-size: .875rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 16px;
+}
+
+@media (max-width: 768px){
+	.btn-menu {
+		display: flex;
+		padding: .5rem 1rem;
+		border: none;
+		background: none;
+		cursor: pointer;
+		gap: .5rem
+	}
+
+	#hamburger {
+		display: block;
+		border-top: 2px solid;
+		width: 20px;
+	}
+	
+	#hamburger::after, #hamburger::before {
+		content: '';
+		display: block;
+		width: 20px;
+		height: 2px;
+		background-color: currentColor;
+		margin-top: 5px;
+		transition: .3s;
+		position: relative;
+	}
+	
+	.header-logo {
+		display: none;
+	}
+	.header-menu ul {
+		display: none;
+	}
+
+	.header-menu {
+		background: none;
+	}
+
+	.header-logo-mobile {
+		display: block;
+	}
+	.header-text-mobile {
+		display: block;
+		font-family: Lato;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 24px;
+	}
+
+	.control-main {
+		flex-direction: column;
+	}
+	.form-block {
+		max-width: 768px;
+	}
+	.form-block form {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.flex-1 {
+		flex: 1 1;
+	}
+	
+	.flex-2 {
+		flex: 2 2;
+	}
+
+	.form-block form div+div {
+		margin-left: 20px;
+	}
+	.extract-main {
+		margin-left: 0;
+	}
+	
+}
+
+
+/* qual mediaquerie fica melhor para o celular
+o 560px ou o 1120px? */
+@media (max-width: ?){
+	.form-block {
+		border: none;
+		padding: 0;
+		margin-bottom: 24px;
+		flex-grow: 1;
+		border-bottom: 1px solid #979797;
+	}
+
+	.form-block form {
+		flex-direction: column;
+		align-items: unset;
+	}
+
+	.form-block input[type="button"] {
+		margin-bottom: 28px;
+	}
+	.flex-1 {
+		flex: 1 1;
+	}
+	
+	.flex-2 {
+		flex: 1 1;
+	}
+
+	.form-block form div+div {
+		margin-left: 0;
+	}
+
+}
