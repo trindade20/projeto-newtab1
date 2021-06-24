@@ -296,8 +296,12 @@ ocultadas*/
 	.botao-menu {
 		display: none;
 		padding: .5rem 1rem;
+		width: 18px;
+		height: 12px;
+		left: 372px;
+		top: 24px;
 		border: none;
-		background: none;
+		background: #333333;
 		cursor: pointer;
 		gap: .5rem
 	}
