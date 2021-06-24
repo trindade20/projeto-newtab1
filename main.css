@@ -296,18 +296,14 @@ ocultadas*/
 	.botao-menu {
 		display: none;
 		padding: .5rem 1rem;
-		width: 18px;
-		height: 12px;
-		left: 372px;
-		top: 24px;
 		border: none;
-		background: #333333;
+		background: none;
 		cursor: pointer;
 		gap: .5rem
 	}
 
 	#hamburger {
-		display: flex;
+		display: none;
 		border-top: 2px solid;
 		width: 20px;
 	}
