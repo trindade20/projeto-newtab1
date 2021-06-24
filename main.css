@@ -310,7 +310,7 @@ ocultadas*/
 	
 	#hamburger::after, #hamburger::before {
 		content: '';
-		display: flex;
+		display: block;
 		width: 20px;
 		height: 2px;
 		background-color: currentColor;
@@ -323,7 +323,7 @@ ocultadas*/
 		display:none;
 	}
 	.header-menu ul {
-		display: flex;
+		display: none;
 	}
 
 	.header-menu {
