@@ -303,14 +303,14 @@ ocultadas*/
 	}
 
 	#hamburger {
-		display:flexbox;
+		display: block;
 		border-top: 2px solid;
 		width: 20px;
 	}
 	
 	#hamburger::after, #hamburger::before {
 		content: '';
-		display: block;
+		display: flex;
 		width: 20px;
 		height: 2px;
 		background-color: currentColor;
@@ -323,11 +323,11 @@ ocultadas*/
 		display:none;
 	}
 	.header-menu ul {
-		display:flexbox ;
+		display: flex;
 	}
 
 	.header-menu {
-		background: #FFFFFF;
+		background: none;
 	}
 
 	.header-logo-mobile {
