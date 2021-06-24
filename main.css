@@ -179,7 +179,7 @@ ocultadas*/
 }
 /* ----------------------------------- */
 
-/* Sessão que abriga o formulário e o controle */
+/* O formulário e o controle */
 
 .control-main {
 	max-width: 1140px;
@@ -303,7 +303,7 @@ ocultadas*/
 	}
 
 	#hamburger {
-		display: block;
+		display:flexbox;
 		border-top: 2px solid;
 		width: 20px;
 	}
@@ -323,11 +323,11 @@ ocultadas*/
 		display:none;
 	}
 	.header-menu ul {
-		display: none;
+		display:flexbox ;
 	}
 
 	.header-menu {
-		background: none;
+		background: #FFFFFF;
 	}
 
 	.header-logo-mobile {
