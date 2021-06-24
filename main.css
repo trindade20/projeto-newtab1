@@ -294,7 +294,7 @@ ocultadas*/
 
 @media (max-width: 768px){
 	.botao-menu {
-		display: flex;
+		display: none;
 		padding: .5rem 1rem;
 		border: none;
 		background: none;
@@ -303,7 +303,7 @@ ocultadas*/
 	}
 
 	#hamburger {
-		display: flexbox;
+		display: flex;
 		border-top: 2px solid;
 		width: 20px;
 	}
