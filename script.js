@@ -1,6 +1,11 @@
+/*validação do campo Valor no formulário**/
+$(document).ready(function () {
+  $('#valor').mask('000.000.000.000.000,00', { reverse: true});
+});
 
+/*objeto no localStorage*/
 var transacao = [];
-
+/*Função preenchimento obrigatório*/
 function validarCampo(e) { 
     e.preventDefault() 
     var error = false;
@@ -40,7 +45,7 @@ function validarCampo(e) {
     }
 }
 
-
+/*Função que lista as transações inseridas na tela*/
 function listarTransacoes() {
     transacao = JSON.parse(localStorage.getItem('transacao'))
     if (transacao != null) {
@@ -61,7 +66,7 @@ function listarTransacoes() {
     }
 }
 
-
+/*Função que altera o símbolo de cada transação, sendo + ou - */
 function alterarSimbolo() {
     transacao = JSON.parse(localStorage.getItem('transacao'))
     i = 0;
@@ -74,7 +79,7 @@ function alterarSimbolo() {
     }
 }
 
-
+/*Função que deleta todas as transações do LocalStorage */
 function deletarTransacoes() {
     confirm = confirm("Tem certeza de que deseja excluir os registros armazenados?")
     if(confirm == true){
@@ -87,7 +92,7 @@ function deletarTransacoes() {
     listarTransacoes()
 }
 
-
+/*Função realiza o cálculo dos valores inseridos no formulário*/
 var total = 0
 function calculoValores() {
     let transacao = JSON.parse(localStorage.getItem('transacao'))
@@ -118,7 +123,7 @@ function calculoValores() {
     }
 }
 
-
+/*Função que lista na tela se o valor apresentado é de lucro ou de prejuízo, baseado no valor da variável "total"*/
 function listarTotal() {
     calculoValores()
     formatarMoeda()
@@ -136,6 +141,7 @@ function listarTotal() {
     }
 }
 
+/*Função que formata a variável 'total' para string com formato de moedaR$*/
 function formatarMoeda() {
     totalFormatado = total
     totalFormatado = totalFormatado + '';
@@ -148,14 +154,14 @@ function formatarMoeda() {
     }
 }
 
-
+/*Função utilizada para a página recarregar após o submit do form */
 function redirecionar(){
     location.href="./index.html"
 }
-
+/*CREATE - Inserido dados na API */
 var transacaoJson = JSON.stringify(localStorage.getItem('transacao'))
 function create(){
-    fetch("", {
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
         method: "POST",
         headers: {
             Authorization: 'Bearer key2CwkHb0CKumjuM',
@@ -165,7 +171,7 @@ function create(){
             records: [
                 {
                     fields: {
-                        Aluno: '3801',
+                        Aluno: '9535',
                         Json: transacaoJson
                     }
                 }
@@ -175,10 +181,10 @@ function create(){
     update()
 }
 
-
+/*UPDATE - Atualizando os dados da api */
 function update(){
     getId()
-    fetch("", {
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
         method: "PATCH",
         headers: {
             Authorization: 'Bearer key2CwkHb0CKumjuM',
@@ -189,7 +195,7 @@ function update(){
                 {
                     id: idAluno,
                     fields: {
-                        Aluno: '3801',
+                        Aluno: '9535',
                         Json: transacaoJson
                     }           
                 }
@@ -198,6 +204,7 @@ function update(){
     })
 }
 
+/*DELETE - Função utilizada para realizar a deleção dos dados armazenados na API */
 function deleteApi(){
     getId()
     var myHeaders = new Headers();
@@ -209,31 +216,34 @@ function deleteApi(){
         redirect: 'follow'
     };
 
-    fetch(""+idAluno, requestOptions)
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico/"+idAluno, requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
 }
 
+/*GET - Recuperando os dados da api em JSON e atribuindo a variável resultJson */
 var resultJson = {}
 function getJson(){
-    fetch("", {
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico?maxRecords=&view=Grid%20view", {
         headers: {
             Authorization: 'Bearer key2CwkHb0CKumjuM'
         },
     }).then(response => response.json().then(result => {resultJson = result}))
 }
- 
+
+/*Recuperando o ID da entrada na API baseado nos últimos digitos do CPF do aluno */
 var idAluno = ''
 function getId(){
     let i = 0;
     for(; i < resultJson.records.length; i++){
-        if(resultJson.records[i].fields.Aluno == "3801"){
+        if(resultJson.records[i].fields.Aluno == "9535"){
             idAluno = resultJson.records[i].id
         }
     }
 }
 
+/*Função para realizar a verificação se já existe entrada na API */
 var verification = true;
 function trueOrFalse(){
     let i = 0
@@ -246,3 +256,14 @@ function trueOrFalse(){
     }
 }
 
+/*Função que verifica se existe entrada na API, caso não exista cria uma nova, caso exista realiza o update */
+function choiseFunction (){
+    trueOrFalse()
+    if(verification == false){
+        create()
+    } else {
+        update()
+
+    }
+
+}
